@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Jogos</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+@extends('layouts.master')
 <body>
     @include('components.header')
+    @include('components.nav')
     
     <div class="container">
         <div class="games-list">
