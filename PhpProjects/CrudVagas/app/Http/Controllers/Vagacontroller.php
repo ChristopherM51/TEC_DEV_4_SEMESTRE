@@ -34,7 +34,7 @@ class Vagacontroller extends Controller
             'titulo'=>'required',
             'descricao'=>'required',
             'setor'=>'required',
-            'remuneracao'=>'required|decimal',
+            'remuneracao'=>'required|numeric',
             'empresa'=>'required',
         ]);
         Vaga::create($request->all());
