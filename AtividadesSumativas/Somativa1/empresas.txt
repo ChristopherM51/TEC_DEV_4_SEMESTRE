@@ -1,0 +1,94 @@
+Atributos da Empresa:
+String CNPJ
+String nome
+int id
+String password
+
+Métodos da Empresa:
+registrar, login e logout
+criar, editar, atualizar e excluir vagas
+pesquisar vagas
+pesquisar candidados
+notificar candidatos
+
+
+
+
+Escopo
+*
+100 pontos
+O sistema será desenvolvido em Laravel e visará permitir que usuários registrem seus currículos e candidatem-se a vagas de emprego de forma rápida e fácil. As empresas poderão criar perfis, anunciar vagas e gerenciar candidaturas. O projeto incluirá o desenvolvimento de um site responsivo, com funcionalidades como busca de vagas, upload de currículos, e notificações automáticas. O sistema deverá ser seguro, fácil de usar, e escalável para suportar um grande número de usuários.
+Objetivos
+*
+100 pontos
+Específicos:
+
+- Criar uma plataforma intuitiva e responsiva para cadastro de currículos e busca de vagas.
+- Implementar um sistema de autenticação seguro para usuários e empresas.
+- Permitir a gestão de vagas e candidaturas pelas empresas.
+- Facilitar o acesso dos candidatos às vagas compatíveis com seus perfis.
+
+Mensuráveis:
+
+- Atingir um mínimo de 500 usuários cadastrados e 50 empresas ativas nos primeiros 6 meses de operação.
+- Reduzir o tempo médio de preenchimento de vagas em 20% comparado aos métodos tradicionais.
+- Aumentar a taxa de correspondência entre candidatos e vagas em 30% com o uso de algoritmos de recomendação.
+
+Atingíveis:
+
+- Utilizar tecnologias web modernas, como frameworks de front-end e back-end, para garantir a entrega eficiente do projeto.
+- Equipe de desenvolvimento composta por profissionais familiarizados com Laravel e com experiências em projetos similares.
+- Planejamento cuidadoso e uso de metodologias ágeis para assegurar o cumprimento dos prazos e objetivos.
+
+Relevantes:
+
+- Atender à demanda crescente por soluções digitais no mercado de trabalho.
+- Facilitar a intermediação entre candidatos e empresas, promovendo eficiência no processo de recrutamento.
+- Melhorar a experiência dos usuários na busca por empregos e no processo de candidatura.
+
+Temporais:
+
+- Concluir o desenvolvimento do sistema em até 12 meses.
+- Lançar uma versão beta do site em 8 meses.
+- Estabelecer um ciclo contínuo de atualizações e melhorias a cada 3 meses após o lançamento.
+Cronograma
+*
+100 pontos
+Mês 1-2: Pesquisa e levantamento de requisitos.
+Mês 3-4: Design e prototipação.
+Mês 5-8: Desenvolvimento do front-end e back-end.
+Mês 9-10: Testes e validação do sistema.
+Mês 11: Implementação de melhorias e ajustes finais.
+Mês 12: Lançamento da versão beta e início do suporte ao usuário.
+Recursos
+*
+100 pontos
+Humanos: 
+
+2 Desenvolvedores web.
+1 Desenvolvedor de UX/UI.
+1 Analista de requisito.
+1 Um profissional QA.
+1 Gerente de projeto.
+
+Tecnológicos:
+
+Servidores de hospedagem (azure).
+Plataformas de desenvolvimento web (Laravel).
+Banco de dados (Postgres).
+Ferramentas de versionamento (Git).
+
+Financeiros:
+
+Orçamento para salários.
+Aquisição de ferramentas e licenças.
+Marketing.
+Manutenção do sistema.
+Análise de Riscos
+*
+100 pontos
+- Riscos Técnicos: Dificuldade na integração de sistemas de terceiros, como APIs de pagamento ou plataformas de login social.
+- Riscos de Prazo: Atrasos na entrega de módulos essenciais devido a mudanças de escopo ou problemas técnicos.
+- Riscos Financeiros: Superestimação do orçamento necessário para desenvolvimento e marketing.
+- Riscos de Segurança: Vulnerabilidades no sistema que possam comprometer os dados dos usuários.
+- Riscos de Mercado: Concorrência de plataformas já estabelecidas e dificuldade em captar usuários e empresas suficientes no lançamento.
