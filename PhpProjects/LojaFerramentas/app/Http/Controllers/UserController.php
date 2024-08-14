@@ -54,20 +54,14 @@ class UserController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-
+    
         $usuario = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-
-        //Auth::login($usuario);
-
-
         return redirect('/');
-    }
-
+}
 
     // Realizar o logout do usuário
     public function logout(Request $request)
@@ -75,8 +69,8 @@ class UserController extends Controller
         Auth::logout();
 
 
-        $request->session()->invalidate();
         $request->session()->regenerateToken();
+        $request->session()->invalidate();
 
 
         return redirect('/');
