@@ -70,7 +70,7 @@ class Vagacontroller extends Controller
             'remuneracao'=>'required|decimal',
             'empresa'=>'required',
         ]);
-        Vaga::update($request->all());
+        $vaga->update($request->all());
         return redirect()->route('vagas.index')
         ->with('success', 'Vaga criada com sucesso!');
     }

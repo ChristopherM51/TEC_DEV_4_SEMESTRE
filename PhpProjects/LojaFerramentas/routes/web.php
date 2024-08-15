@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\ProdutoController;
 
 // Rota para exibir a homePage
 Route::get('/', function () { return view('home');});
@@ -26,3 +27,6 @@ Route::get('/dashboard', function (){
 
 // Rota para logout
 Route::post('/logout', [UserController::class, 'logout']);
+
+// Rota para produtos
+Route::resource('produtos', ProdutoController::class)->middleware(['auth']);

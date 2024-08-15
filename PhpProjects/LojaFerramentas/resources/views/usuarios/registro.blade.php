@@ -12,7 +12,7 @@
             <label for="name">Nome</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" required>
             
-            @error(name)
+            @error('name')
                 <div class="invalid-feedback">{{$mesage}}</div>
             @enderror
         </div>
@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" required>
-            @error(email)
+            @error('email')
             <div class="invalid-feedback">{{$mesage}}</div>
         @enderror
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             <label for="password">Senha</label>
             <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
-            @error(password)
+            @error('password')
             <div class="invalid-feedback">{{$mesage}}</div>
         @enderror
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
             <label for="password_confirmation">Confirme a Senha</label>
             <input type="password" name="password_confirmation" class="form-control" required>
-            @error(password_confirmation)
+            @error('password_confirmation')
             <div class="invalid-feedback">{{$mesage}}</div>
         @enderror
         </div>
