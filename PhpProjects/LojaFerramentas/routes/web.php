@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Middleware\ProdutosMiddleware;
+use App\Http\Controllers\HomeController;
 
-// Rota para exibir a homePage
-Route::get('/', function () { return view('home');});
+// Página inicial com carrocel de produtos
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Rota para exibir o formulário de registro
 Route::get('/registro', [UserController::class, 'showRegistroForm'])->name('usuarios.registro');
@@ -29,4 +31,5 @@ Route::get('/dashboard', function (){
 Route::post('/logout', [UserController::class, 'logout']);
 
 // Rota para produtos
-Route::resource('produtos', ProdutoController::class)->middleware(['auth']);
+Route::resource('produtos', ProdutoController::class)
+->middleware(ProdutosMiddleware::class);

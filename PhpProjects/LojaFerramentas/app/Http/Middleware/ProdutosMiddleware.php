@@ -16,11 +16,12 @@ class ProdutosMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check() && Auth::user()->tipo_usuario === 'administrador');
+        if(Auth::check() && Auth::user()->tipo_usuario === 'administrador'){
         return $next($request);
-
+        } else{
         // Se não for uma empresa, redirecionar com uma mensagem de erro
-        return redirect()->route('')->
+        return redirect()->route('/')->
         withErrors('access', 'Acesso restrito aos administradores.');
+        }
     }
 }

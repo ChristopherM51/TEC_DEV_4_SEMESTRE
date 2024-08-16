@@ -1,12 +1,19 @@
 @if (Auth::check())
     <div>
         <h3>Olá, {{ Auth::user()->name }}</h3>
-        <h4>{{Auth::user()->tipo_usuario}}</h4>
+        <h4>{{ Auth::user()->tipo_usuario }}</h4>
     </div>
     <form action="/logout" method="post">
         @csrf
         <button type="submit">Sair</button>
     </form>
+    @if (@auth::user()->isAdmin())
+        <div>
+            <a href="/produtos">
+                <h3>Dashboard Produtos - Adm</h3>
+            </a>
+        </div>
+    @endif
 @else
     <div>
         <ul>
