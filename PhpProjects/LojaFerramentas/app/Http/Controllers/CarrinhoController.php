@@ -16,7 +16,7 @@ class CarrinhoController extends Controller
         Produto::create(['id_produto' => $produto->id,
         'id_user' => Auth::id(),
         'quantidade'=> $request->quantidade]);
-
+        //
         return redirect()->back()->with('success', 'item adicionado');
     }
 }
