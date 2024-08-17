@@ -87,4 +87,9 @@ class ProdutoController extends Controller
         return redirect()->route('produtos.index')
         ->with('sucesso','Produto excluído com sucesso');
     }
+
+    // Mostrar os produtos
+    public function show (Produto $produto){
+        return view('produtos.show', compact('produto') );
+        }
 }
