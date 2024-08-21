@@ -1,0 +1,180 @@
+Escopo:
+
+Desenvolver uma plataforma virtual de vendas de cursos online 
+utilizando Laravel. O site irá permitir a que o usuario crie 
+uma conta, pesquise, compre e assista as aulas de cursos no 
+formato EAD. Os administradores do site poderam cadastrar,
+atualizar e excluir cursos na plataforma.
+
+Objetivos:
+
+Específicos:
+
+* Implementar um sistema de registro e login para usuarios
+criarem e gerenciarem suas contas.
+* Desenvolver uma interface intuitica para navegação por
+categorias e pesquisa de curos, facilitandio a localização de
+cursos específicos.
+* Criar um sistema de carrinho de compras que permitar ao usuario
+adicionar, remover e finalizar a compra de diversos cursos em 
+uma unica transação.
+* Desenvolver um painel voltado a administração do site para o
+gerenciamento dos cursos ofertados no site.
+* Implementar medidas de segurança visando a confiabilidade da
+plataforma.
+
+Mensuaraveis:
+
+* O sistema deve permitir o registro e login de no minimo 3000
+usuarios no primeiro mês apos o lançamento.
+* A taxa de satisfação com a navegação e pesquisa deve ser de 
+no minimo 85% em testes de usabilidade.
+* O sistema deve ser capaz de processar e concluir pelo menos
+1000 pedidos np primeiro mes.
+* A plataforma deve estar apta a suportar e oferecer pelo menos
+30 curos em seu lançamento.
+
+Atingiveis:
+
+* Implemtar um sistema de gerenciamento de cursos e pedidos 
+dentro dos recursos e prazos estabelecidos.
+* Utilizar tecnologias e metodologias de desenvolvimento 
+modernas visando a confiablidade e eficiencia do sistema.
+* Treinar a equipe administrativa para operar a platafroma de
+forma eficaz e autonoma.
+
+Relevantes:
+
+* Atender à demanda por novas plataformas de ensiano EAD.
+* Oferecer um sistema de facil utilização e manutenção aos 
+administradores da plataforma.
+* Garantir a satisfação por partes dos clientes e adminitradores
+da plataforma.
+* Proporcionar escalabilidade a plataforma visando futuras
+expanções.
+
+Temporais:
+
+* Concluir o projeto em 10 meses.
+* Configuração do ambiente e desevolvimento de sistema de
+cadastro e autenticação em 3 semanas.
+* Implementar um sistema de	cadastro de adminstradores em 2 semanas.
+* Implemtação de sistema de cadastro de cursos em 8 semanas.
+* Implemtação de sistema de cadastro de usuarios em 12 semanas.
+* Aprimoramento da experiencia de usuario, interfaces e sistemas
+em 20 semanas.
+* Implemtação da plataforma online em 25 semanas.
+* Testes, coleta de feedback, aprimoramentos de UX em 30 semanas.
+* Capacitação de admintradores em 34 semanas.
+* Lançamento, acompanhamento e correção de bugs da semana 35 a 40.
+
+Planejamento do Projeto:
+
+Cronograma:
+
+1ª Etapa
+Planejamento e Análise:
+Definição dos requisitos do projeto e análise das necessidades 
+dos stakeholders.
+Criação de documentação técnica e diagramas de fluxo.
+
+2ª Etapa
+Desenvolvimento:
+Configuração do ambiente de desenvolvimento e criação do sistema 
+de cadastro e login.
+Desenvolvimento da interface de navegação, pesquisa e páginas de 
+detalhes dos cursos.
+Implementação das funcionalidades do carrinho de compras e checkout.
+Criação do painel de administração e ferramentas para gestão de 
+cursos e pedidos.
+Implementação de segurança e ajustes finais conforme feedback.
+
+3ª Etapa
+Testes e Validação:
+Condução de testes funcionais, de usabilidade e segurança.
+Correção de bugs e refinamento baseado nos resultados dos testes.
+
+4ª Etapa
+Implantação e Monitoramento:
+Lançamento da loja virtual em ambiente de produção.
+Monitoramento contínuo do desempenho e suporte técnico pós-lançamento.
+
+Recursos:
+
+Equipe de Desenvolvimento:
+
+Desenvolvedores Backend e Frontend.
+Designer UI/UX para a criação de uma interface amigável.
+Especialista em Segurança para garantir proteção de dados.
+Testadores/QA para verificar a funcionalidade e usabilidade.
+
+Infraestrutura:
+
+Servidores de hospedagem (AWS).
+Ferramentas de controle de versão (GitHub).
+Ambiente de desenvolvimento configurado com Laravel e Postgres.
+
+Ferramentas:
+
+Jira/Trello para gerenciamento de tarefas
+Teams para comunicação interna
+Figma para design de interfaces
+
+
+Análise de Riscos:
+
+Atrasos no Cronograma:
+Mitigação: Implementar um plano de gerenciamento de projeto 
+detalhado e realizar revisões semanais para monitorar o 
+progresso e identificar possíveis desvios.
+
+Problemas de Segurança:
+Mitigação: Adotar melhores práticas de segurança e realizar 
+testes de vulnerabilidade regulares para proteger dados 
+sensíveis e transações.
+
+Integração com Sistemas de Pagamento:
+Mitigação: Selecionar provedores de pagamento confiáveis e 
+testar a integração com antecedência para garantir a 
+funcionalidade.
+
+Mudanças nos Requisitos:
+Mitigação: Estabelecer um processo formal para gerenciamento 
+de mudanças e manter uma comunicação aberta com stakeholders 
+para gerenciar expectativas.
+
+Desempenho Insuficiente do Sistema:
+Mitigação: Realizar testes de carga e otimizar o desempenho 
+durante as fases de desenvolvimento e teste para garantir a 
+eficiência do sistema.
+
+Feedback Negativo dos Usuários:
+Mitigação: Conduzir testes de usabilidade durante o 
+desenvolvimento e ajustar funcionalidades com base no feedback
+para melhorar a experiência do usuário.
+
+user_type:
+
+String name
+String email
+String password
+String CPF
+string phone_number
+string adress
+String user_type
+
+course:
+
+String name
+String description
+int duration
+int price
+String img_path
+
+Administrator -> login -> CRUD courses
+Custumer -> sing-in -> login -> search courses -> select courses -> buy
+
+
+
+
+
