@@ -167,6 +167,7 @@ course:
 
 String name
 String description
+string category
 int duration
 int price
 String img_path
