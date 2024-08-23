@@ -5,7 +5,7 @@
 <div class="container">
     <div id="courseCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            @foreach ($courses as $index => $course)
+            @foreach ($courses as $course)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                     <img src="assets/img/img{{$index}}.png" class="d-block" alt="{{ $course->name }}" style="width: 500px">
                     <div class="carousel-caption d-none d-md-block">

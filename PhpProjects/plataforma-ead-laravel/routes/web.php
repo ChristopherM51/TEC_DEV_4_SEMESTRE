@@ -11,17 +11,17 @@ use App\Http\Controllers\DashboardController;
 // Página inicial com carrocel de courses
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Rota para exibir o formulário de registro
-Route::get('/registro', [UserController::class, 'showRegistroForm'])->name('usuarios.registro');
+// Rota para exibir o formulário de registration
+Route::get('/registration', [UserController::class, 'showRegistrationForm'])->name('users.registration');
 
-// Rota para processar o registro
-Route::post('/registro', [UserController::class, 'Registro'])->name('usuarios.registro');
+// Rota para processar o registration
+Route::post('/registration', [UserController::class, 'registration'])->name('users.registration');
 
 // Rota para exibir o formulário de login
-Route::get('/login', [UserController::class, 'showLoginForm'])->name('usuarios.login');
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('users.login');
 
 // Rota para processar o login
-Route::post('/login', [UserController::class, 'Login'])->name('usuarios.login');
+Route::post('/login', [UserController::class, 'Login'])->name('users.login');
 
 // Rota para pagina interna
 Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -38,6 +38,6 @@ Route::resource('/courses', CourseController::class)
 Route::get('/courses/{course}', [CourseController::class,'show'])
 ->middleware('auth')->name('courses.show');
 
-// Rota para adicionar course no carrinho
-Route::post('carrinho/add/{course}',[CourseController::class, 'add'])
-->middleware('auth')->name('carrinho.add');
+// Rota para adicionar course no cart
+Route::post('cart/add/{course}',[CourseController::class, 'add'])
+->middleware('auth')->name('cart.add');
