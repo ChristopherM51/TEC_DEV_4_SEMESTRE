@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="/assets/img/img0.png" class="img-fluid" alt="{{ $course->name }}">
+                <img src="/assets/img/img.png" class="img-fluid" alt="{{ $course->name }}">
             </div>
             <div class="col-md-6">
                 <h2>{{ $course->name }}</h2>
@@ -13,11 +13,9 @@
                 <p>{{ $course->durarion }}</p>
                 <p>Preço: R$ {{ $course->price }}</p>
 			
-                <form method="POST" action="{{ route('carrinho.add', $course->id) }}">
+                <form method="POST" action="{{ route('cart.add', $course->id) }}">
                     @csrf
-                    <label for="duration">Selecione a duração</label>
-                    <input type="number" class="" name="duration" id="">
-                    <button type="submit" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    <button type="submit" class="btn btn-primary">Finalizar compra</button>
                 </form>
             </div>
         </div>

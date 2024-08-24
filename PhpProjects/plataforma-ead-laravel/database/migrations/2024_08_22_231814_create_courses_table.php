@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('category');
             $table->decimal('duration',4,0);
             $table->decimal('price',8,2);
-            $table->string('img')->nullable();
+            $table->string('img_path')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ criarem e gerenciarem suas contas.
 * Desenvolver uma interface intuitica para navegação por
 categorias e pesquisa de curos, facilitandio a localização de
 cursos específicos.
-* Criar um sistema de carrinho de compras que permitar ao usuario
+* Criar um sistema de cart de compras que permitar ao usuario
 adicionar, remover e finalizar a compra de diversos cursos em 
 uma unica transação.
 * Desenvolver um painel voltado a administração do site para o
@@ -84,7 +84,7 @@ Configuração do ambiente de desenvolvimento e criação do sistema
 de cadastro e login.
 Desenvolvimento da interface de navegação, pesquisa e páginas de 
 detalhes dos cursos.
-Implementação das funcionalidades do carrinho de compras e checkout.
+Implementação das funcionalidades do cart de compras e checkout.
 Criação do painel de administração e ferramentas para gestão de 
 cursos e pedidos.
 Implementação de segurança e ajustes finais conforme feedback.

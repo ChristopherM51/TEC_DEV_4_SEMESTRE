@@ -53,9 +53,9 @@
 
             <div class="form-group">
                 <label for="img">Imagem:</label>
-                <input type="image" name="img" class="form-control" placeholder="Imagem">
+                <input type="text" name="img" class="form-control" placeholder="Imagem">
             </div>
-
+            <br>
 
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
