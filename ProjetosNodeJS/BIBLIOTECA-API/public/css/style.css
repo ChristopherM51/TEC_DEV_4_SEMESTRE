@@ -51,3 +51,28 @@ li {
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+.center {
+    text-align: center;
+}
