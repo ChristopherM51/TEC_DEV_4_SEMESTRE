@@ -1,4 +1,3 @@
-// URL da API
 const apiUrl = 'http://localhost:3000/livros';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function carregarLivro(id) {
         try {
             const response = await fetch(`${apiUrl}/${id}`);
+            if (!response.ok) throw new Error('Livro não encontrado');
             const livro = await response.json();
 
             document.getElementById('livroId').value = livro._id;
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('genero').value = livro.genero;
         } catch (error) {
             console.error('Erro ao carregar o livro:', error);
+            // Exiba uma mensagem de erro para o usuário
         }
     }
 

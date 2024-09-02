@@ -1,4 +1,3 @@
-// URL da API
 const apiUrl = 'http://localhost:3000/livros';
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,4 +1,3 @@
-// URL da API
 const apiUrl = 'http://localhost:3000/livros';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carregarLivros = async () => {
         try {
             const response = await fetch(apiUrl);
+            if (!response.ok) throw new Error('Falha ao buscar livros');
             const livros = await response.json();
             listaLivros.innerHTML = ''; // Limpa a tabela antes de adicionar novos livros
 
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         } catch (error) {
             console.error('Erro ao carregar os livros:', error);
+            // Exiba uma mensagem de erro para o usuário
         }
     };
 
