@@ -9,7 +9,8 @@ const TodoSchema = new mongoose.Schema({
         type:String
     },
     completed:{
-        type:Enum('A Fazer', 'Fazendo', 'Concluído'),
+        type:String,
+        enum:['A Fazer', 'Fazendo', 'Concluído'],
         default:'A Fazer'
     }
 });
