@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const DATABSE_URL =process.env.DATABASE_URL;
+const DATABASE_URL =process.env.DATABASE_URL;
 
 //Verificação
 if(!DATABASE_URL){
