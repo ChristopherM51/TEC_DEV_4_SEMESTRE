@@ -24,6 +24,7 @@ export async function middleware(request) {
 }
 
 
-export const config = {
-  matcher: ['/api/todos/:path*', '/todos/:path*'],
+export const config = {               
+  
+  matcher: ['/api/todos/:path*', '/tasks/:path*'],
 };

@@ -1,9 +1,7 @@
 'use client';
 
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState([]);
@@ -21,7 +19,7 @@ export default function TasksPage() {
         return;
       }
 
-
+      
       const response = await fetch('/api/tasks', {
         headers: {
           Authorization: `Bearer ${token}`,

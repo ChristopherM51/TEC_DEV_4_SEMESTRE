@@ -3,6 +3,7 @@ import {NextResponse} from "next/server";
 
 export async function GET(){
     try {
+        const userId = request.user.userId;
         const tasks = await getTask();
         return NextResponse.json({
             success:true,
