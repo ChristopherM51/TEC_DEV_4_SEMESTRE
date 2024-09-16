@@ -1,9 +1,18 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const connectMongo = async () => {
-    mongoose.connect(process.env.DATABASE_URL)
-    .then(() => console.log('Conectado ao MongoDB'))
-    .catch(err => console.error('Erro ao conectar ao MongoDB', err));
+const DATABASE_URL =process.env.DATABASE_URL;
+
+//Verificação
+if(!DATABASE_URL){
+    throw new Error(
+        'Por favor, defina a variável DATABASE_URL no arquivo .env.local'
+    );
 }
 
-export default connectMongo;
+const connectMongo = async() =>{
+    mongoose.connect(DATABASE_URL)
+        .then("Conectado com Mongo")
+        .catch(err => console.error(err));
+}
+
+export default connectMongo; 
