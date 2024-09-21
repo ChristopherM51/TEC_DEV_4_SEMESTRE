@@ -1,16 +1,14 @@
+// app/login/page.js
 'use client';
-
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const router = useRouter();
-
 
   const handleLogin = async () => {
     const response = await fetch('/api/auth/login', {
@@ -21,7 +19,6 @@ export default function LoginPage() {
       body: JSON.stringify({ username, password }),
     });
 
-
     if (response.ok) {
       const { token } = await response.json();
       localStorage.setItem('token', token);
@@ -30,7 +27,6 @@ export default function LoginPage() {
       setError('Credenciais inválidas');
     }
   };
-
 
   return (
     <div>

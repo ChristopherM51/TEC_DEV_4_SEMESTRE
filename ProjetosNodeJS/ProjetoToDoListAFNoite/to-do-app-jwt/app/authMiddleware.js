@@ -1,30 +1,24 @@
-import jwt from "jsonwebtoken";
+// middleware.ts (ou authMiddleware.ts se estiver nomeado assim)
+import jwt from 'jsonwebtoken';
 import { NextResponse } from 'next/server';
-
-
-
 
 export async function middleware(request) {
   const token = request.headers.get('Authorization')?.split(' ')[1];
- 
+
   if (!token) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    request.user = decoded;
+    request.user = decoded; // Adiciona o usuário decodificado ao request
   } catch (error) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-
   return NextResponse.next();
 }
 
-
 export const config = {               
-  
-  matcher: ['/api/todos/:path*', '/tasks/:path*'],
+  matcher: ['/api/tasks/:path*'], // Ajuste o matcher para as rotas que você quer proteger
 };
