@@ -46,6 +46,17 @@ public class Main {
                             if(curso.getNomeCurso().equalsIgnoreCase(nomeCursoAluno));
                             encontrado = true;
                             boolean novoAluno = true;
+                            do {
+                                String nomeAluno = JOptionPane.showInputDialog("Nome do Aluno: ");
+                                String cpfAluno = JOptionPane.showInputDialog("CPF: ");
+                                String matriculaAluno = JOptionPane.showInputDialog("Matricula: ");
+                                curso.addAluno(new Aluno(nomeAluno, cpfAluno, matriculaAluno));
+                                novoAluno = JOptionPane.showInputDialog(
+                                    "Inserir novo Aluno? \n"
+                                    +"1 - Sim \n"
+                                    +"2 - Não").equals("1")?true:false;
+
+                            } while (encontrado);
                         }
                     } catch (Exception e) {
                         // TODO: handle exception
