@@ -1,18 +1,14 @@
 package com.example;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-
 public abstract class Produto {
     private String nome;
-    private String preco;
+    private double preco;
 
-    public abstract double calcularFrete();
+    public abstract double calcularPeso();
 }

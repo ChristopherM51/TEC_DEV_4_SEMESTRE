@@ -1,9 +1,10 @@
 package com.example;
 
-public class Eletronico extends Produto implements Transportavel {
+public class Roupa
+        extends Produto implements Transportavel {
     private double volume;
 
-    public Eletronico(String nome, double preco, double volume) {
+    public Roupa(String nome, double preco, double volume) {
         super(nome, preco);
         this.volume = volume;
     }
@@ -16,7 +17,7 @@ public class Eletronico extends Produto implements Transportavel {
 
     @Override
     public double calcularFrete() {
-        double valorFrete = calcularPeso()*2;
+        double valorFrete = calcularPeso() * 2;
         return valorFrete;
     }
 }
