@@ -6,30 +6,31 @@ import java.util.Set;
 public class SetExemplo {
     private Set<String> nomes;
 
-    public SetExemplo(){
+    public SetExemplo() {
         nomes = new HashSet<>();
     }
 
-    public void adicionarNome(String nome){
+    //add
+    public void adiconarNome(String nome){
         nomes.add(nome);
         System.out.println(nomes.hashCode());
     }
-
+    //list
     public void listarNomes(){
-        for (String nome : nomes){
+        for (String nome : nomes) {
             System.out.println(nome);
         }
     }
-
+    //remove
     public void deleteNome(String nome){
         nomes.remove(nome);
-        System.out.println("Nome removido com sucesso");
+        System.out.println("Nome Removido com sucesso");
     }
     //update
-    public void modificarNomeIndex(String nome, String nomeNovo){
+    public void modificarNomeIndex(String nome,String nomeNovo){
         nomes.remove(nome);
         nomes.add(nomeNovo);
         System.out.println(
-            "Nome "+nome+", foi alterado para "+nomeNovo);
+            "Nome alterado de "+nome+" para "+nomeNovo);
     }
 }
