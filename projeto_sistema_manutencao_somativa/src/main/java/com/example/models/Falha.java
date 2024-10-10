@@ -1,6 +1,7 @@
 package com.example.models;
 
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import lombok.Setter;
 public class Falha {
     private int id;
     private int maquinaId;
-    private Date data;
+    private LocalDate data;
     private String problema;
     private String prioridade;
     private String operador;

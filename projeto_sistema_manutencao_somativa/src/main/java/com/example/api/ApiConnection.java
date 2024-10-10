@@ -8,7 +8,6 @@ import java.net.URL;
 public class ApiConnection {
     private static final String API_URL = "http://localhost:3000/";
 
-
     public static String getData(String endpoint) {
         try {
             URL url = new URL(API_URL + endpoint);
