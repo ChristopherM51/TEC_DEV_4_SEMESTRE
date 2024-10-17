@@ -1,6 +1,7 @@
 package com.example.models;
 
 import java.sql.Date;
+import java.util.Collection;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,13 +12,13 @@ import lombok.Setter;
 @Setter
 
 public class Manutencao{
-    private int id;
-    private int maquinaId;
+    private String id;
+    private String maquinaId;
     private String data;
     private String tipo;
     private String pecasTrocadas;
     private int tempoDeParada;
-    private int tecnicoId;
+    private String tecnicoId;
     private String observacoes;
 
     @Override
@@ -32,5 +33,10 @@ public class Manutencao{
                 ", tecnicoId=" + tecnicoId +
                 ", observacoes='" + observacoes + '\'' +
                 '}';
+    }
+
+    public Collection<?> getManutencao() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getManutencao'");
     }
 }

@@ -8,26 +8,37 @@ import com.example.api.MaquinaAPI;
 
 public class MaquinaController {
     private List<Maquina> maquinas;
-    
-    public MaquinaController(){
+    private int nextId; // Variável para armazenar o próximo ID disponível
+    private MaquinaAPI maquinaAPI; // Instância da API
+
+    public MaquinaController() {
         maquinas = new ArrayList<>();
+        nextId = 1; // Começar a contagem do ID a partir de 1
+        maquinaAPI = new MaquinaAPI(); // Criando a instância da API
     }
-    //
-    //Métodos CRUD
-    public void createMaquina (Maquina maquina) {
+
+    // Métodos CRUD
+    public void createMaquina(Maquina maquina) {
+        // Gerar ID automaticamente
+        maquina.setId(String.valueOf(nextId));
+        nextId++;
         this.maquinas.add(maquina);
+        maquinaAPI.postMaquina(maquina); // Chamar a API para registrar a máquina
     }
 
     public List<Maquina> readMaquinas() {
-        maquinas = MaquinaAPI.getMaquinas();
+        maquinas = maquinaAPI.getMaquinas();
         return maquinas;
     }
 
-    public void updateMaquina (int posicao, Maquina maquina){
-       maquinas.set(posicao,maquina);
+    public void updateMaquina(int posicao, Maquina maquina) {
+        maquinas.set(posicao, maquina);
+        maquinaAPI.putMaquina(maquina.getId(), maquina); // Agora, chamando como método de instância
     }
 
-    public void deleteMaquina (int posicao){
+    public void deleteMaquina(int posicao) {
+        Maquina maquina = maquinas.get(posicao);
+        maquinaAPI.deleteMaquina(maquina.getId()); // Agora, chamando como método de instância
         maquinas.remove(posicao);
     }
 }

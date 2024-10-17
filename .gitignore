@@ -1,3 +1,4 @@
 .node_modules/
 projeto_sistemas_manutencao/src/main/resources/
 projeto_sistema_manutencao_somativa/src/main/resources/JsonAPI/node_modules
+/projeto_sistema_manutencao_somativa/target
