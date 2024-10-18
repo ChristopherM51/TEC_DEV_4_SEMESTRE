@@ -26,9 +26,9 @@ public class MaquinasPanel extends JPanel {
     private MaquinaController maquinaController;
     private JTable maquinasTable;
     private DefaultTableModel tableModel;
-    private JButton btnSalvarAlteracoes;
     private JButton btnCadastrarMaquina;
     private JButton btnDeletarMaquina;
+    private JButton btnEditarMaquina; // Novo botão de editar
 
     // Construtor
     public MaquinasPanel() {
@@ -37,7 +37,7 @@ public class MaquinasPanel extends JPanel {
 
         // Configurar o modelo da tabela
         tableModel = new DefaultTableModel(new Object[]{
-            "ID", "Código", "Nome", "Modelo", "Fabricante", "Data Aquisição", 
+            "ID", "Código", "Nome", "Modelo", "Fabricante", "Data Aquisição",
             "Tempo de Vida Estimado", "Localização", "Detalhes", "Manual"
         }, 0);
         maquinasTable = new JTable(tableModel);
@@ -51,24 +51,19 @@ public class MaquinasPanel extends JPanel {
         // Adicionar os Botões
         JPanel painelInferior = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnCadastrarMaquina = new JButton("Cadastrar");
-        btnSalvarAlteracoes = new JButton("Salvar Alterações");
+        btnEditarMaquina = new JButton("Editar");
         btnDeletarMaquina = new JButton("Deletar");
 
         painelInferior.add(btnCadastrarMaquina);
-        painelInferior.add(btnSalvarAlteracoes);
+        painelInferior.add(btnEditarMaquina);
         painelInferior.add(btnDeletarMaquina);
         this.add(painelInferior, BorderLayout.SOUTH);
 
         // ActionListener para o botão de Cadastrar Máquina
-        btnCadastrarMaquina.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                abrirFormularioCadastro();
-            }
-        });
+        btnCadastrarMaquina.addActionListener(e -> abrirFormularioCadastro());
 
-        // ActionListener para salvar alterações
-        btnSalvarAlteracoes.addActionListener(e -> salvarAlteracoes());
+        // ActionListener para o botão de Editar Máquina
+        btnEditarMaquina.addActionListener(e -> editarMaquinaSelecionada());
 
         // ActionListener para deletar máquina
         btnDeletarMaquina.addActionListener(e -> deletarMaquinaSelecionada());
@@ -96,19 +91,26 @@ public class MaquinasPanel extends JPanel {
 
     // Método para abrir o formulário de cadastro de máquina
     private void abrirFormularioCadastro() {
+        abrirFormularioCadastro("", "", "", "", "", "", "", "", "", "");
+    }
+
+    // Método para abrir o formulário de cadastro ou edição
+    private void abrirFormularioCadastro(String id, String codigo, String nome, String modelo, String fabricante,
+                                         String dataAquisicao, String tempoVida, String localizacao,
+                                         String detalhes, String manual) {
         JDialog dialog = new JDialog((JFrame) null, "Cadastrar Máquina", true);
         dialog.setLayout(new GridLayout(11, 2));
 
         // Campos do formulário
-        JTextField txtCodigo = new JTextField();
-        JTextField txtNome = new JTextField();
-        JTextField txtModelo = new JTextField();
-        JTextField txtFabricante = new JTextField();
-        JTextField txtDataAquisicao = new JTextField();
-        JTextField txtTempoVida = new JTextField();
-        JTextField txtLocalizacao = new JTextField();
-        JTextField txtDetalhes = new JTextField();
-        JTextField txtManual = new JTextField();
+        JTextField txtCodigo = new JTextField(codigo);
+        JTextField txtNome = new JTextField(nome);
+        JTextField txtModelo = new JTextField(modelo);
+        JTextField txtFabricante = new JTextField(fabricante);
+        JTextField txtDataAquisicao = new JTextField(dataAquisicao);
+        JTextField txtTempoVida = new JTextField(tempoVida);
+        JTextField txtLocalizacao = new JTextField(localizacao);
+        JTextField txtDetalhes = new JTextField(detalhes);
+        JTextField txtManual = new JTextField(manual);
 
         // Adicionar os campos no diálogo
         dialog.add(new JLabel("Código:"));
@@ -138,7 +140,7 @@ public class MaquinasPanel extends JPanel {
         btnSalvar.addActionListener(e -> {
             try {
                 Maquina novaMaquina = new Maquina(
-                    "", // O ID será gerado automaticamente
+                    id, // Usar o ID da máquina que está sendo editada
                     txtCodigo.getText(),
                     txtNome.getText(),
                     txtModelo.getText(),
@@ -149,8 +151,16 @@ public class MaquinasPanel extends JPanel {
                     txtDetalhes.getText(),
                     txtManual.getText()
                 );
+                
+                if (id.isEmpty()) {
+                    // Se ID for vazio, significa que estamos cadastrando uma nova máquina
+                    maquinaController.createMaquina(novaMaquina);
+                } else {
+                    // Se ID não for vazio, significa que estamos atualizando uma máquina existente
+                    int posicao = Integer.parseInt(id) - 1; // ID para índice; ajuste conforme necessário
+                    maquinaController.updateMaquina(posicao, novaMaquina);
+                }
 
-                maquinaController.createMaquina(novaMaquina);
                 atualizarTabela();
                 dialog.dispose();
             } catch (Exception ex) {
@@ -165,27 +175,29 @@ public class MaquinasPanel extends JPanel {
         dialog.setVisible(true);
     }
 
-    // Método para salvar alterações na tabela
-    private void salvarAlteracoes() {
+    private void editarMaquinaSelecionada() {
         int selectedRow = maquinasTable.getSelectedRow();
+    
         if (selectedRow >= 0) {
+            // Obter ID da linha selecionada
             String id = (String) tableModel.getValueAt(selectedRow, 0);
-            Maquina maquinaAtualizada = new Maquina(
-                id,
-                (String) tableModel.getValueAt(selectedRow, 1),
-                (String) tableModel.getValueAt(selectedRow, 2),
-                (String) tableModel.getValueAt(selectedRow, 3),
-                (String) tableModel.getValueAt(selectedRow, 4),
-                LocalDate.parse((String) tableModel.getValueAt(selectedRow, 5)),
-                Long.parseLong((String) tableModel.getValueAt(selectedRow, 6)),
-                (String) tableModel.getValueAt(selectedRow, 7),
-                (String) tableModel.getValueAt(selectedRow, 8),
-                (String) tableModel.getValueAt(selectedRow, 9)
-            );
-            maquinaController.updateMaquina(selectedRow, maquinaAtualizada);
-            atualizarTabela();
+            String codigo = (String) tableModel.getValueAt(selectedRow, 1);
+            String nome = (String) tableModel.getValueAt(selectedRow, 2);
+            String modelo = (String) tableModel.getValueAt(selectedRow, 3);
+            String fabricante = (String) tableModel.getValueAt(selectedRow, 4);
+            String dataAquisicao = (String) tableModel.getValueAt(selectedRow, 5);
+            String tempoVida = (String) tableModel.getValueAt(selectedRow, 6);
+            String localizacao = (String) tableModel.getValueAt(selectedRow, 7);
+            String detalhes = (String) tableModel.getValueAt(selectedRow, 8);
+            String manual = (String) tableModel.getValueAt(selectedRow, 9);
+            
+            // Chama o método para abrir o formulário de cadastro com os dados da máquina selecionada
+            abrirFormularioCadastro(id, codigo, nome, modelo, fabricante, dataAquisicao, tempoVida, localizacao, detalhes, manual);
+        } else {
+            // Adicione um log ou mensagem para saber que nada foi selecionado
+            System.out.println("Nenhuma linha selecionada.");
         }
-    }
+    }    
 
     // Método para deletar a máquina selecionada
     private void deletarMaquinaSelecionada() {
