@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 
 public class Maquina {
-    private String Id;
+    private String id;
     private String codigo;
     private String nome;
     private String modelo;
@@ -26,7 +26,7 @@ public class Maquina {
     @Override
     public String toString() {
         return "Maquina{" +
-                "id='" + Id + '\'' +
+                "id='" + id + '\'' +
                 ", codigo='" + codigo + '\'' +
                 ", nome='" + nome + '\'' +
                 ", modelo='" + modelo + '\'' +

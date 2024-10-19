@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.example.controllers.MaquinaController;
 import com.example.models.Maquina;
+import com.example.utils.PdfGenerator; // Importando a classe de geração de PDF
 
 public class MaquinasPanel extends JPanel {
     // Atributos
@@ -28,7 +29,8 @@ public class MaquinasPanel extends JPanel {
     private DefaultTableModel tableModel;
     private JButton btnCadastrarMaquina;
     private JButton btnDeletarMaquina;
-    private JButton btnEditarMaquina; // Novo botão de editar
+    private JButton btnEditarMaquina;
+    private JButton btnGerarRelatorio; // Novo botão para gerar relatório
 
     // Construtor
     public MaquinasPanel() {
@@ -53,10 +55,12 @@ public class MaquinasPanel extends JPanel {
         btnCadastrarMaquina = new JButton("Cadastrar");
         btnEditarMaquina = new JButton("Editar");
         btnDeletarMaquina = new JButton("Deletar");
+        btnGerarRelatorio = new JButton("Gerar Relatório PDF"); // Botão de gerar relatório
 
         painelInferior.add(btnCadastrarMaquina);
         painelInferior.add(btnEditarMaquina);
         painelInferior.add(btnDeletarMaquina);
+        painelInferior.add(btnGerarRelatorio); // Adicionando o botão ao painel
         this.add(painelInferior, BorderLayout.SOUTH);
 
         // ActionListener para o botão de Cadastrar Máquina
@@ -67,6 +71,9 @@ public class MaquinasPanel extends JPanel {
 
         // ActionListener para deletar máquina
         btnDeletarMaquina.addActionListener(e -> deletarMaquinaSelecionada());
+
+        // ActionListener para o botão de gerar relatório
+        btnGerarRelatorio.addActionListener(e -> gerarRelatorioPDF());
     }
 
     // Método para atualizar a tabela com os dados
@@ -87,6 +94,13 @@ public class MaquinasPanel extends JPanel {
                 maquina.getManual()
             });
         }
+    }
+
+    // Método para gerar o relatório PDF
+    private void gerarRelatorioPDF() {
+        List<Maquina> maquinas = maquinaController.readMaquinas();
+        PdfGenerator pdfGenerator = new PdfGenerator();
+        pdfGenerator.gerarRelatorioMaquinas(maquinas);
     }
 
     // Método para abrir o formulário de cadastro de máquina
@@ -156,8 +170,8 @@ public class MaquinasPanel extends JPanel {
                     // Se ID for vazio, significa que estamos cadastrando uma nova máquina
                     maquinaController.createMaquina(novaMaquina);
                 } else {
-                    // Se ID não for vazio, significa que estamos atualizando uma máquina existente
-                    int posicao = Integer.parseInt(id) - 1; // ID para índice; ajuste conforme necessário
+                    // Se ID não for vazio, estamos atualizando a máquina existente usando o índice como referência
+                    int posicao = Integer.parseInt(id); // Índice da linha selecionada
                     maquinaController.updateMaquina(posicao, novaMaquina);
                 }
 
@@ -180,13 +194,13 @@ public class MaquinasPanel extends JPanel {
     
         if (selectedRow >= 0) {
             // Obter ID da linha selecionada
-            String id = (String) tableModel.getValueAt(selectedRow, 0);
+            String id = String.valueOf(selectedRow); // Usar o índice da linha como ID
             String codigo = (String) tableModel.getValueAt(selectedRow, 1);
             String nome = (String) tableModel.getValueAt(selectedRow, 2);
             String modelo = (String) tableModel.getValueAt(selectedRow, 3);
             String fabricante = (String) tableModel.getValueAt(selectedRow, 4);
-            String dataAquisicao = (String) tableModel.getValueAt(selectedRow, 5);
-            String tempoVida = (String) tableModel.getValueAt(selectedRow, 6);
+            String dataAquisicao = tableModel.getValueAt(selectedRow, 5).toString();
+            String tempoVida = tableModel.getValueAt(selectedRow, 6).toString();
             String localizacao = (String) tableModel.getValueAt(selectedRow, 7);
             String detalhes = (String) tableModel.getValueAt(selectedRow, 8);
             String manual = (String) tableModel.getValueAt(selectedRow, 9);
