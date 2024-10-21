@@ -31,9 +31,6 @@ public class FalhaAPI {
         }
         return falhas;
     }
-    //
-    //
-    //
     // Método Create
     public void postFalha(Falha falha) {
         // Criar um Objeto Json

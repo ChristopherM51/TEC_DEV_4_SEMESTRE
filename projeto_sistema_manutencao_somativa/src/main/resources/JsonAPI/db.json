@@ -1,18 +1,6 @@
 {
   "maquinas": [
     {
-      "tempoVidaEstimado": 10,
-      "codigo": "p",
-      "localizacao": "q",
-      "nome": "a",
-      "id": "1",
-      "fabricante": "a",
-      "manual": "q",
-      "modelo": "a",
-      "dataAquisicao": "2011-02-10",
-      "detalhes": "q"
-    },
-    {
       "id": "1",
       "tempoVidaEstimado": 10,
       "codigo": "a",
