@@ -29,7 +29,8 @@ public class MaquinaAPI {
                         jsonObject.getLong("tempoVidaEstimado"),
                         jsonObject.getString("localizacao"),
                         jsonObject.getString("detalhes"),
-                        jsonObject.getString("manual"));
+                        jsonObject.getString("manual")
+                );
                 maquinas.add(maquina);
             }
         }

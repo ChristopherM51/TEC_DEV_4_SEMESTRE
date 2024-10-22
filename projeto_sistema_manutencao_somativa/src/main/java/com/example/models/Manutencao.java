@@ -1,8 +1,5 @@
 package com.example.models;
 
-import java.sql.Date;
-import java.util.Collection;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +10,7 @@ import lombok.Setter;
 
 public class Manutencao{
     private String id;
-    private String maquinaId;
+    private String manutencaoId;
     private String data;
     private String tipo;
     private String pecasTrocadas;
@@ -25,7 +22,7 @@ public class Manutencao{
     public String toString() {
         return "Manutencao{" +
                 "id=" + id +
-                ", maquinaId=" + maquinaId +
+                ", manutencaoId=" + manutencaoId +
                 ", data=" + data +
                 ", tipo='" + tipo + '\'' +
                 ", pecasTrocadas='" + pecasTrocadas + '\'' +
@@ -33,10 +30,5 @@ public class Manutencao{
                 ", tecnicoId=" + tecnicoId +
                 ", observacoes='" + observacoes + '\'' +
                 '}';
-    }
-
-    public Collection<?> getManutencao() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getManutencao'");
     }
 }

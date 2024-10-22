@@ -1,3 +1,4 @@
+//MaquinaController.java
 package com.example.controllers;
 
 import java.util.ArrayList;
@@ -33,12 +34,12 @@ public class MaquinaController {
 
     public void updateMaquina(int posicao, Maquina maquina) {
         maquinas.set(posicao, maquina);
-        maquinaAPI.putMaquina(maquina.getId(), maquina); // Agora, chamando como método de instância
+        maquinaAPI.putMaquina(maquina.getId(), maquina); // Chamando como método de instância
     }
 
     public void deleteMaquina(int posicao) {
         Maquina maquina = maquinas.get(posicao);
-        maquinaAPI.deleteMaquina(maquina.getId()); // Agora, chamando como método de instância
+        maquinaAPI.deleteMaquina(maquina.getId()); // Chamando como método de instância
         maquinas.remove(posicao);
     }
 }

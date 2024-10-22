@@ -13,15 +13,15 @@
       "detalhes": "q"
     }
   ],
-  "historicoManutencao": [
+  "manutencao": [
     {
       "id": "1",
-      "maquinaId": 1,
+      "manutencaoId": 1,
       "data": "2024-10-07",
       "tipo": "Preventiva",
       "pecasTrocadas": "Correia",
       "tempoDeParada": 4,
-      "tecnico": "João Silva",
+      "tecnicoId": "João Silva",
       "observacoes": "Substituição preventiva da correia."
     }
   ],

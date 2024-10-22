@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManutencaoAPI {
-    public static List<Manutencao> getManutencao(){
-        String json = ApiConnection.getData("manutencao");
+    public static List<Manutencao> getManutencoes(){
+        String json = ApiConnection.getData("manutencoes");
         List<Manutencao> manutencoes = new ArrayList<>();
 
         if(json != null){
@@ -33,11 +33,11 @@ public class ManutencaoAPI {
         return manutencoes;
     }
     // Método Create
-    public void postMaquina(Manutencao manutencao) {
+    public void postManutencao(Manutencao manutencao) {
         // Criar um Objeto Json
         JSONObject manutencaoObject = new JSONObject();
         manutencaoObject.put("id", manutencao.getId());
-        manutencaoObject.put("manutencao", manutencao.getManutencao());
+        manutencaoObject.put("manutencaoId", manutencao.getManutencaoId());
         manutencaoObject.put("data", manutencao.getData());
         manutencaoObject.put("tipo", manutencao.getTipo());
         manutencaoObject.put("pecasTrocadas", manutencao.getPecasTrocadas());
@@ -58,7 +58,7 @@ public class ManutencaoAPI {
         // Criar um Objeto Json para a atualização
         JSONObject manutencaoObject = new JSONObject();
         manutencaoObject.put("id", manutencao.getId());
-        manutencaoObject.put("manutencao", manutencao.getManutencao());
+        manutencaoObject.put("manutencaoId", manutencao.getManutencaoId());
         manutencaoObject.put("data", manutencao.getData());
         manutencaoObject.put("tipo", manutencao.getTipo());
         manutencaoObject.put("pecasTrocadas", manutencao.getPecasTrocadas());
@@ -73,7 +73,7 @@ public class ManutencaoAPI {
     public static boolean updateManutencao(Manutencao manutencao) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", manutencao.getId());
-        jsonObject.put("manutencao", manutencao.getManutencao());
+        jsonObject.put("manutencaoId", manutencao.getManutencaoId());
         jsonObject.put("data", manutencao.getData());
         jsonObject.put("tipo", manutencao.getTipo());
         jsonObject.put("pecasTrocadas", manutencao.getPecasTrocadas());
