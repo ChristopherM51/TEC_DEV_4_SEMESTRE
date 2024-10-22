@@ -2,15 +2,27 @@
   "maquinas": [
     {
       "id": "1",
-      "tempoVidaEstimado": 10,
-      "codigo": "a",
-      "localizacao": "q",
-      "nome": "a",
-      "fabricante": "a",
-      "manual": "q",
-      "modelo": "a",
-      "dataAquisicao": "2011-02-10",
-      "detalhes": "q"
+      "tempoVidaEstimado": 20,
+      "codigo": "2",
+      "localizacao": "Linha 2",
+      "nome": "CTU19",
+      "fabricante": "Hass",
+      "manual": "URL Manual",
+      "modelo": "VF3",
+      "dataAquisicao": "2020-02-02",
+      "detalhes": "Operante"
+    },
+    {
+      "id": "2",
+      "tempoVidaEstimado": 15,
+      "codigo": "2",
+      "localizacao": "Linha 3 ",
+      "nome": "CTU25",
+      "fabricante": "hass",
+      "manual": "URL manual",
+      "modelo": "VF5",
+      "dataAquisicao": "2021-02-03",
+      "detalhes": "Operacional"
     }
   ],
   "manutencao": [
